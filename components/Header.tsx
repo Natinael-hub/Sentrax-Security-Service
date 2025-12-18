@@ -6,11 +6,14 @@ import Logo from "./Logo";
 import NavLink from "./NavLink";
 
 const nav = [
+  { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
   { href: "/careers", label: "Careers" },
   { href: "/contact", label: "Contact" },
 ];
+
+
 
 export default function Header() {
   const [open, setOpen] = useState(false);
