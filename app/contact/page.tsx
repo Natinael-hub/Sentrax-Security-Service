@@ -1,132 +1,110 @@
-import Section from "@/components/Section";
-import { site } from "@/app/metadata";
+"use client";
+
+import { useState } from "react";
 
 export default function ContactPage() {
+  const [submitted, setSubmitted] = useState(false);
+
   return (
-    <div>
-      <Section eyebrow="Contact" title="Request a quote or ask a question">
-        <p className="max-w-3xl">
-          For fastest response, send the basics: coverage type (unarmed/armed/mobile), location, schedule, and desired start date.
+    <main className="mx-auto max-w-5xl px-6 py-16">
+      {/* Header */}
+      <header className="mb-14 max-w-2xl">
+        <h1 className="text-5xl font-semibold tracking-tight">Contact Us</h1>
+        <p className="mt-6 text-lg opacity-80">
+          Request a quote or ask a question. A Sentrax Security Service
+          representative will respond promptly.
         </p>
+      </header>
 
-        <div className="mt-8 grid gap-5 md:grid-cols-2">
-          <div className="card p-6 md:p-8">
-            <div className="text-base font-semibold">Email</div>
-            <p className="mt-2 text-sm text-steel">
-              <a className="link" href={`mailto:${site.email}`}>
-                {site.email}
-              </a>
-            </p>
+      {!submitted ? (
+        <form
+          action="https://formspree.io/f/XXXXXXXX"
+          method="POST"
+          onSubmit={() => setSubmitted(true)}
+          className="grid gap-6 max-w-3xl"
+        >
+          <input
+            type="hidden"
+            name="subject"
+            value="New Sentrax Security Inquiry"
+          />
 
-            <div className="mt-7 text-sm text-steel">
-              <div className="font-semibold text-white">What to include</div>
-              <ul className="mt-2 space-y-2">
-                <li>• City / State (or multiple locations)</li>
-                <li>• Coverage type: Unarmed / Armed / Mobile Patrol</li>
-                <li>• Schedule: days, hours, 24/7, weekends, etc.</li>
-                <li>• Start date and expected duration</li>
-              </ul>
-            </div>
+          <div className="grid gap-2">
+            <label className="text-sm">Full Name</label>
+            <input
+              name="name"
+              required
+              className="rounded-xl border border-line bg-white/5 px-4 py-3 outline-none focus:border-white/30"
+              placeholder="John Doe"
+            />
           </div>
 
-          <div className="card p-6 md:p-8">
-            <div className="text-base font-semibold">Quick form</div>
-            <p className="mt-2 text-sm text-steel">
-              This form is ready for production once you connect an email provider (Resend/SendGrid) or Formspree.
-              For now, it will open your email client with the details.
-            </p>
+          <div className="grid gap-2">
+            <label className="text-sm">Email</label>
+            <input
+              type="email"
+              name="email"
+              required
+              className="rounded-xl border border-line bg-white/5 px-4 py-3 outline-none focus:border-white/30"
+              placeholder="you@company.com"
+            />
+          </div>
 
-            <form
-              className="mt-6 space-y-4"
-              action={`mailto:${site.email}`}
-              method="post"
-              encType="text/plain"
+          <div className="grid gap-2">
+            <label className="text-sm">Phone (optional)</label>
+            <input
+              name="phone"
+              className="rounded-xl border border-line bg-white/5 px-4 py-3 outline-none focus:border-white/30"
+              placeholder="(555) 555-5555"
+            />
+          </div>
+
+          <div className="grid gap-2">
+            <label className="text-sm">Coverage Type</label>
+            <select
+              name="coverage"
+              className="rounded-xl border border-line bg-white/5 px-4 py-3 outline-none focus:border-white/30"
             >
-              <div>
-                <label className="text-xs text-fog">Full name</label>
-                <input
-                  name="name"
-                  required
-                  className="mt-2 w-full rounded-xl border border-line bg-white/5 px-4 py-3 text-sm outline-none focus:border-white/20"
-                  placeholder="Your name"
-                />
-              </div>
-
-              <div>
-                <label className="text-xs text-fog">Company (optional)</label>
-                <input
-                  name="company"
-                  className="mt-2 w-full rounded-xl border border-line bg-white/5 px-4 py-3 text-sm outline-none focus:border-white/20"
-                  placeholder="Company name"
-                />
-              </div>
-
-              <div>
-                <label className="text-xs text-fog">Email</label>
-                <input
-                  name="reply_to"
-                  type="email"
-                  required
-                  className="mt-2 w-full rounded-xl border border-line bg-white/5 px-4 py-3 text-sm outline-none focus:border-white/20"
-                  placeholder="you@company.com"
-                />
-              </div>
-
-              <div className="grid gap-4 md:grid-cols-2">
-                <div>
-                  <label className="text-xs text-fog">Coverage type</label>
-                  <select
-                    name="coverage"
-                    className="mt-2 w-full rounded-xl border border-line bg-white/5 px-4 py-3 text-sm outline-none focus:border-white/20"
-                    defaultValue="Unarmed"
-                  >
-                    <option>Unarmed</option>
-                    <option>Armed</option>
-                    <option>Mobile Patrol</option>
-                    <option>Not sure yet</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="text-xs text-fog">Start date</label>
-                  <input
-                    name="start_date"
-                    className="mt-2 w-full rounded-xl border border-line bg-white/5 px-4 py-3 text-sm outline-none focus:border-white/20"
-                    placeholder="MM/DD/YYYY"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="text-xs text-fog">Location(s)</label>
-                <input
-                  name="locations"
-                  required
-                  className="mt-2 w-full rounded-xl border border-line bg-white/5 px-4 py-3 text-sm outline-none focus:border-white/20"
-                  placeholder="City, State (or multiple locations)"
-                />
-              </div>
-
-              <div>
-                <label className="text-xs text-fog">Message</label>
-                <textarea
-                  name="message"
-                  rows={4}
-                  className="mt-2 w-full rounded-xl border border-line bg-white/5 px-4 py-3 text-sm outline-none focus:border-white/20"
-                  placeholder="Tell us the schedule, hours, and any special requirements."
-                />
-              </div>
-
-              <button className="btn btn-primary w-full" type="submit">
-                Send
-              </button>
-
-              <p className="text-xs text-fog">
-                Want this form to submit without opening email? See README for the 2-minute Resend setup.
-              </p>
-            </form>
+              <option>Unarmed Security</option>
+              <option>Armed Security</option>
+              <option>Mobile Patrol</option>
+              <option>Not sure yet</option>
+            </select>
           </div>
+
+          <div className="grid gap-2">
+            <label className="text-sm">Location(s)</label>
+            <input
+              name="location"
+              required
+              className="rounded-xl border border-line bg-white/5 px-4 py-3 outline-none focus:border-white/30"
+              placeholder="City, State (or multiple locations)"
+            />
+          </div>
+
+          <div className="grid gap-2">
+            <label className="text-sm">Message</label>
+            <textarea
+              name="message"
+              rows={5}
+              required
+              className="rounded-xl border border-line bg-white/5 px-4 py-3 outline-none focus:border-white/30"
+              placeholder="Tell us about coverage hours, start date, and any special requirements."
+            />
+          </div>
+
+          <button type="submit" className="btn btn-primary w-fit px-8 py-3">
+            Send Message
+          </button>
+        </form>
+      ) : (
+        <div className="rounded-2xl border border-line bg-white/5 p-10 max-w-2xl">
+          <h2 className="text-2xl font-semibold">Thank you</h2>
+          <p className="mt-3 opacity-80">
+            Your message has been received. We’ll be in touch shortly.
+          </p>
         </div>
-      </Section>
-    </div>
+      )}
+    </main>
   );
 }
