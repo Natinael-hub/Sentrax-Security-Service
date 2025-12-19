@@ -23,122 +23,111 @@ export default function HomePage() {
   return (
     <div>
       {/* HERO (Image Background) */}
-      <section
-        className="relative overflow-hidden border-b border-line bg-cover bg-center"
-        style={{ backgroundImage: "url('/hero-sentrax.jpg')" }}
-      >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/65" />
+      {/* HERO (Image Background - Responsive) */}
+<section
+  className="
+    relative overflow-hidden border-b border-line
+    bg-cover bg-no-repeat
+    bg-[position:50%_18%]
+    sm:bg-[position:50%_15%]
+    md:bg-[position:50%_12%]
+  "
+  style={{ backgroundImage: "url('/hero-sentrax.jpg')" }}
+>
+  {/* Responsive height */}
+  <div className="relative min-h-[72vh] sm:min-h-[78vh] md:min-h-[82vh] lg:min-h-[85vh]">
+    {/* Overlay */}
+    <div className="absolute inset-0 bg-black/65" />
 
-        <div className="relative z-10 container py-16 md:py-24">
-          <div className="grid gap-10 md:grid-cols-12 md:items-center">
-            <div className="md:col-span-7 text-white">
-              <div className="badge bg-white/10 text-white">
-                Nationwide Security Coverage
-              </div>
+    {/* Content */}
+    <div className="relative z-10 container py-14 md:py-24">
+      <div className="grid gap-10 md:grid-cols-12 md:items-center">
+        <div className="md:col-span-7 text-white">
+          <div className="badge bg-white/10 text-white">Nationwide Security Coverage</div>
 
-              <h1 className="mt-5 text-3xl md:text-5xl font-semibold tracking-tight">
-                Corporate-level security services—delivered with discipline.
-              </h1>
+          <h1 className="mt-5 text-3xl md:text-5xl font-semibold tracking-tight">
+            Corporate-level security services—delivered with discipline.
+          </h1>
 
-              <p className="mt-5 text-base md:text-lg text-white/90 leading-relaxed">
-                Sentrax Security Service provides professional unarmed, armed,
-                and mobile patrol solutions across the United States—built for
-                reliability, clear communication, and measurable accountability.
-              </p>
+          <p className="mt-5 text-base md:text-lg text-white/90 leading-relaxed">
+            Sentrax Security Service provides professional unarmed, armed, and mobile patrol
+            solutions across the United States—built for reliability, clear communication, and
+            measurable accountability.
+          </p>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link href="/contact" className="btn btn-primary">
-                  Request a Quote
-                </Link>
-                <Link
-                  href="/services"
-                  className="rounded-xl border border-white/30 px-5 py-3 text-white hover:bg-white/10"
-                >
-                  View Services
-                </Link>
-              </div>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Link href="/contact" className="btn btn-primary">
+              Request a Quote
+            </Link>
+            <Link
+              href="/services"
+              className="rounded-xl border border-white/30 px-5 py-3 text-white hover:bg-white/10"
+            >
+              View Services
+            </Link>
+          </div>
 
-              <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3">
-                <div className="card bg-white/10 p-4">
-                  <div className="text-lg font-semibold">24/7</div>
-                  <div className="text-xs text-white/70 mt-1">
-                    Coverage options
-                  </div>
-                </div>
-                <div className="card bg-white/10 p-4">
-                  <div className="text-lg font-semibold">SOP-led</div>
-                  <div className="text-xs text-white/70 mt-1">
-                    Operations
-                  </div>
-                </div>
-                <div className="card bg-white/10 p-4">
-                  <div className="text-lg font-semibold">Nationwide</div>
-                  <div className="text-xs text-white/70 mt-1">
-                    Deployment
-                  </div>
-                </div>
-              </div>
+          <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3">
+            <div className="card bg-white/10 p-4">
+              <div className="text-lg font-semibold">24/7</div>
+              <div className="text-xs text-white/70 mt-1">Coverage options</div>
             </div>
-
-            <div className="md:col-span-5">
-              <div className="card bg-black/40 p-8 md:p-10 backdrop-blur">
-                <div className="flex items-center gap-4">
-                  <div className="relative h-14 w-14">
-                    <Image
-                      src="/logo.png"
-                      alt="Sentrax logo"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="text-white">
-                    <div className="text-sm font-semibold">
-                      Sentrax Security Service
-                    </div>
-                    <div className="text-xs text-white/70">
-                      {site.domain}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-8 space-y-3 text-sm text-white/85">
-                  <div className="flex gap-2">
-                    <span className="text-accent">•</span>
-                    <span>
-                      Uniformed guard services for corporate and commercial
-                      environments
-                    </span>
-                  </div>
-                  <div className="flex gap-2">
-                    <span className="text-accent">•</span>
-                    <span>
-                      Incident documentation and consistent communication
-                    </span>
-                  </div>
-                  <div className="flex gap-2">
-                    <span className="text-accent">•</span>
-                    <span>
-                      Scalable coverage for single sites or multi-location
-                      portfolios
-                    </span>
-                  </div>
-                </div>
-
-                <div className="mt-8">
-                  <Link href="/contact" className="btn btn-primary w-full">
-                    Contact: {site.email}
-                  </Link>
-                  <p className="mt-3 text-xs text-white/70">
-                    Prefer a specific start date or scope? Use the form and we’ll
-                    respond quickly.
-                  </p>
-                </div>
-              </div>
+            <div className="card bg-white/10 p-4">
+              <div className="text-lg font-semibold">SOP-led</div>
+              <div className="text-xs text-white/70 mt-1">Operations</div>
+            </div>
+            <div className="card bg-white/10 p-4">
+              <div className="text-lg font-semibold">Nationwide</div>
+              <div className="text-xs text-white/70 mt-1">Deployment</div>
             </div>
           </div>
         </div>
-      </section>
+
+        <div className="md:col-span-5">
+          <div className="card bg-black/40 p-8 md:p-10 backdrop-blur">
+            <div className="flex items-center gap-4">
+              <div className="relative h-14 w-14">
+                <Image src="/logo.png" alt="Sentrax logo" fill className="object-contain" />
+              </div>
+              <div className="text-white">
+                <div className="text-sm font-semibold">Sentrax Security Service</div>
+                <div className="text-xs text-white/70">{site.domain}</div>
+              </div>
+            </div>
+
+            <div className="mt-8 space-y-3 text-sm text-white/85">
+              <div className="flex gap-2">
+                <span className="text-accent">•</span>
+                <span>Uniformed guard services for corporate and commercial environments</span>
+              </div>
+              <div className="flex gap-2">
+                <span className="text-accent">•</span>
+                <span>Incident documentation and consistent communication</span>
+              </div>
+              <div className="flex gap-2">
+                <span className="text-accent">•</span>
+                <span>Scalable coverage for single sites or multi-location portfolios</span>
+              </div>
+            </div>
+
+            <div className="mt-8">
+              <Link href="/contact" className="btn btn-primary w-full">
+                Contact: {site.email}
+              </Link>
+              <p className="mt-3 text-xs text-white/70">
+                Prefer a specific start date or scope? Use the form and we’ll respond quickly.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Optional: subtle bottom fade to blend into the next section */}
+    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ink to-transparent" />
+  </div>
+</section>
+
 
       {/* HIGHLIGHTS */}
       <Section
