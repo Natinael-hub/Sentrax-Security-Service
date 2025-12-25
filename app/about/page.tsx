@@ -24,7 +24,7 @@ export default function AboutPage() {
         <p className="max-w-3xl">
           Sentrax Security Service is focused on delivering corporate-level security operations with a
           simple standard: professional execution every shift. We design coverage that fits your site,
-          your policies, and your risk profile—then we manage performance through communication and
+          your policies, and your risk profile then we manage performance through communication and
           accountability.
         </p>
 
